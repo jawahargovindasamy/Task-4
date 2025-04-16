@@ -146,10 +146,12 @@ const editEntries = (e) => {
 
 // Delete
 const deleteEntries = (e) => {
-  data.splice(e, 1);
-  localStorage.setItem("data", JSON.stringify(data));
-  filterEntries();
-  total();
+  if (confirm("Are you sure you want to delete this entry?")) {
+    data.splice(e, 1);
+    localStorage.setItem("data", JSON.stringify(data));
+    filterEntries();
+    total();
+  }
 };
 
 // DOMContentLoaded
