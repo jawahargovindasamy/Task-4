@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="shortcut icon"
+      href="https://static.vecteezy.com/system/resources/previews/003/602/588/non_2x/expense-tracker-app-rgb-color-icon-vector.jpg"
+      type="image/x-icon"
+    />
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <div class="bg-gray-200 min-h-screen p-4">
+      <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
+        <h1 class="text-center font-bold text-3xl sm:text-4xl">Expense Tracker</h1>
+    
+        <!-- Responsive Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-6 text-center">
+          <div class="bg-zinc-300 rounded-lg p-4 shadow-lg">
+            <h2 class="text-xl font-semibold">Total Income</h2>
+            <p id="total-income" class="text-2xl font-bold text-green-600">₹0</p>
+          </div>
+    
+          <div class="bg-zinc-300 rounded-lg p-4 shadow-lg">
+            <h2 class="text-xl font-semibold">Total Expense</h2>
+            <p id="total-expense" class="text-2xl font-bold text-red-600">₹0</p>
+          </div>
+    
+          <div class="bg-zinc-300 rounded-lg p-4 shadow-lg">
+            <h2 class="text-xl font-semibold">Total Balance</h2>
+            <p id="total-balance" class="text-2xl font-bold text-blue-600">₹0</p>
+          </div>
+        </div>
+    
+        <!-- Form Section -->
+        <form id="form" class="my-4">
+          <div class="flex flex-col sm:flex-row sm:items-center my-4 gap-4">
+            <input
+              type="text"
+              id="text"
+              placeholder="Enter the Description"
+              class="p-2 rounded-lg border focus:outline-2 flex-1 w-full"
+            />
+          </div>
+    
+          <div class="flex flex-col sm:flex-row my-4 gap-4">
+            <input
+              type="number"
+              id="amount"
+              placeholder="Enter the Amount"
+              class="p-2 rounded-lg border focus:outline-2 w-full sm:w-1/3"
+            />
+            <select
+              id="type"
+              class="p-2 rounded-lg border focus:outline-2 cursor-pointer w-full sm:w-1/3"
+            >
+              <option value="Income">Income</option>
+              <option value="Expense">Expense</option>
+            </select>
+            <input
+              type="date"
+              id="date"
+              class="p-2 rounded-lg border focus:outline-2 w-full sm:w-1/3"
+            />
+          </div>
+    
+          <div id="msg" class="text-red-400 font-bold text-xl"></div>
+    
+          <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 my-4">
+            <button
+              type="submit"
+              class="p-2 rounded-lg bg-orange-500 cursor-pointer text-white text-xl hover:bg-orange-600 w-full sm:w-auto"
+            >
+              Add Transaction
+            </button>
+            <button
+              type="reset"
+              class="p-2 rounded-lg bg-red-500 cursor-pointer text-white text-xl hover:bg-red-600 w-full sm:w-auto"
+            >
+              Reset
+            </button>
+          </div>
+        </form>
+    
+        <!-- Filter Buttons -->
+        <div class="my-4">
+          <label class="font-semibold text-2xl">Filter:</label>
+          <div class="flex flex-wrap gap-4 mt-2">
+            <label class="text-xl cursor-pointer">
+              <input
+                type="radio"
+                value="all"
+                name="filter"
+                class="cursor-pointer mr-1 w-4 h-4"
+                checked
+              />
+              All
+            </label>
+            <label class="text-xl cursor-pointer">
+              <input
+                type="radio"
+                value="income"
+                name="filter"
+                class="cursor-pointer mr-1 w-4 h-4"
+              />
+              Income
+            </label>
+            <label class="text-xl cursor-pointer">
+              <input
+                type="radio"
+                value="expense"
+                name="filter"
+                class="cursor-pointer mr-1 w-4 h-4"
+              />
+              Expense
+            </label>
+          </div>
+        </div>
+    
+        <!-- Entries Section -->
+        <div class="my-4" id="entries"></div>
+      </div>
+    </div>
+    
+
+    <script src="./script.js"></script>
+  </body>
+</html>
